@@ -23,7 +23,7 @@ class TestSpiralMemory < Test::Unit::TestCase
   def print_grid(grid)
     grid.each { |row|
       row.each { |x|
-        print((Math.sqrt(x).ceil / 2).floor, ", ")
+        print(x, ", ")
       }
       puts
     }
