@@ -15,15 +15,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/spiral_memory@Run_test__test_spiral_memory___spiral_memory.coverage" NAME="Run test 'test_spiral_memory': spiral_memory Coverage Results" MODIFIED="1518908941446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="spiral_memory" />
+    <SUITE FILE_PATH="coverage/spiral_memory@Run_test__test_spiral_memory___spiral_memory.coverage" NAME="Run test 'test_spiral_memory': spiral_memory Coverage Results" MODIFIED="1518924667246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="spiral_memory" />
   </component>
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="spiral_memory.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/spiral_memory.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+            <state relative-caret-position="315">
+              <caret line="21" column="64" lean-forward="true" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
               <folding />
             </state>
           </provider>
@@ -32,8 +32,8 @@
       <file leaf-file-name="test_spiral_memory.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test_spiral_memory.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+            <state relative-caret-position="446">
+              <caret line="32" column="60" lean-forward="false" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -44,6 +44,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>do</find>
+      <find>ring_number</find>
+      <find>radius</find>
+      <find>ring</find>
+      <find>byebug</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -63,7 +67,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
@@ -178,26 +182,47 @@
       <updated>1518798804256</updated>
       <workItem from="1518798808295" duration="9000" />
       <workItem from="1518798820239" duration="1000" />
-      <workItem from="1518901321562" duration="6630000" />
+      <workItem from="1518901321562" duration="16945000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Run_test_'test_spiral_memory'__spiral_memory - 2018.02.17 at 18h 06m 19s.xml">
+    <history-entry file="Run_test_'test_spiral_memory'__spiral_memory - 2018.02.17 at 21h 59m 51s.xml">
       <configuration name="Run test 'test_spiral_memory': spiral_memory" configurationId="TestUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_test_'test_spiral_memory'__spiral_memory - 2018.02.17 at 18h 07m 12s.xml">
+    <history-entry file="Run_test_'test_spiral_memory'__spiral_memory - 2018.02.17 at 22h 00m 25s.xml">
       <configuration name="Run test 'test_spiral_memory': spiral_memory" configurationId="TestUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="Run_test_'test_spiral_memory'__spiral_memory - 2018.02.17 at 18h 09m 02s.xml">
+    <history-entry file="Run_test_'test_spiral_memory'__spiral_memory - 2018.02.17 at 22h 00m 54s.xml">
+      <configuration name="Run test 'test_spiral_memory': spiral_memory" configurationId="TestUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Run_test_'test_spiral_memory'__spiral_memory - 2018.02.17 at 22h 02m 27s.xml">
+      <configuration name="Run test 'test_spiral_memory': spiral_memory" configurationId="TestUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Run_test_'test_spiral_memory'__spiral_memory - 2018.02.17 at 22h 03m 04s.xml">
+      <configuration name="Run test 'test_spiral_memory': spiral_memory" configurationId="TestUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Run_test_'test_spiral_memory'__spiral_memory - 2018.02.17 at 22h 18m 11s.xml">
+      <configuration name="Run test 'test_spiral_memory': spiral_memory" configurationId="TestUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Run_test_'test_spiral_memory'__spiral_memory - 2018.02.17 at 22h 19m 04s.xml">
+      <configuration name="Run test 'test_spiral_memory': spiral_memory" configurationId="TestUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Run_test_'test_spiral_memory'__spiral_memory - 2018.02.17 at 22h 19m 18s.xml">
+      <configuration name="Run test 'test_spiral_memory': spiral_memory" configurationId="TestUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Run_test_'test_spiral_memory'__spiral_memory - 2018.02.17 at 22h 20m 23s.xml">
+      <configuration name="Run test 'test_spiral_memory': spiral_memory" configurationId="TestUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Run_test_'test_spiral_memory'__spiral_memory - 2018.02.17 at 22h 31m 07s.xml">
       <configuration name="Run test 'test_spiral_memory': spiral_memory" configurationId="TestUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6640000" />
+    <option name="totallyTimeSpent" value="16955000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="418" y="0" width="1022" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -253,16 +278,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tests/test_spiral_memory.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        <state relative-caret-position="446">
+          <caret line="32" column="60" lean-forward="false" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/spiral_memory.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="36" column="4" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
+        <state relative-caret-position="315">
+          <caret line="21" column="64" lean-forward="true" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
           <folding />
         </state>
       </provider>

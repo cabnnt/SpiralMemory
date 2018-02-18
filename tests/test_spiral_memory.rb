@@ -11,12 +11,37 @@ class TestSpiralMemory < Test::Unit::TestCase
   def test_initialization()
     valid_max_address = 25
 
-    assert_raise {
+    assert_raise (ArgumentError) {
+      SpiralMemory.new(0)
+    }
+    assert_raise (ArgumentError) {
       SpiralMemory.new(-1)
+    }
+    assert_raise (ArgumentError) {
+      SpiralMemory.new(nil)
     }
 
     spiral_memory_25 = SpiralMemory.new(valid_max_address)
-    assert_equal(2, spiral_memory_25.number_of_rings)
+    assert_equal(2, spiral_memory_25.number_of_spirals)
+  end
+
+  def test_manhattan_distance()
+    spiral_memory_2048 = SpiralMemory.new(2048)
+
+    assert_equal(0, spiral_memory_2048.manhattan_distance(1))
+    assert_equal(3, spiral_memory_2048.manhattan_distance(12))
+    assert_equal(2, spiral_memory_2048.manhattan_distance(23))
+    assert_equal(31, spiral_memory_2048.manhattan_distance(1024))
+
+    assert_raise (ArgumentError) {
+      spiral_memory_2048.manhattan_distance(0)
+    }
+    assert_raise (ArgumentError) {
+      spiral_memory_2048.manhattan_distance(-1)
+    }
+    assert_raise (ArgumentError) {
+      spiral_memory_2048.manhattan_distance(nil)
+    }
   end
 
   private

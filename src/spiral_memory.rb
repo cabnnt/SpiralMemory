@@ -1,49 +1,63 @@
 class SpiralMemory
+
   attr_reader :max_address
-  attr_reader :number_of_rings
+  attr_reader :number_of_spirals
 
   def initialize(max_address)
-    if max_address < 0
-      raise(NoMemoryError, "Maximum address must be >= 1.")
+    if !max_address.nil? && max_address >= 1
+      max_address = Integer(max_address)
+
+      @number_of_spirals = address_to_spiral(max_address)
+      @max_address = max_address
+      @read_port_address = 1
     end
 
-    @number_of_rings = address_to_ring_number(max_address)
-    @max_address = max_address
-    @read_port_address = 1
-    @memory_grid = Array.new(number_of_rings) { Array.new(number_of_rings) }
+    validate(max_address)
   end
 
-=begin
-  def read(address)
+  # Calculate the Manhattan distance (see https://en.wikipedia.org/wiki/Taxicab_geometry) from `address` to the center
+  # of memory.
+  #
+  # Specifically, calculate the distance from `address` to the nearest radial (where distance to center == `spiral`)
+  # and then sum this with that radial's distance to the center.
+  def manhattan_distance(address)
     validate(address)
 
-    # should get the coordinates of the desired address
-    # calculate the shortest (i.e., Manhattan) distance between those coordinates and @read_port_address
-    # step to the read port along that shortest path
+    if address == 1
+      0
+    else
+      radius = address_to_spiral(address)
+      distance_between_corners = 2 * radius
+
+      inner_spiral_side_length = 2 * radius - 1
+      inner_spiral_area = (inner_spiral_side_length) ** 2
+      inner_spiral_perimeter = 4 * inner_spiral_side_length + 4   # the number of elements in a spiral
+
+      distance_from_maximum_element = address - (inner_spiral_area % inner_spiral_perimeter)
+      distance_from_last_corner = distance_from_maximum_element % distance_between_corners
+
+      distance_to_side_center = (distance_from_last_corner - radius).abs
+
+      distance_to_side_center + radius
+    end
   end
-
-  def write(address, value)
-    validate(address)
-    value = Integer(value)
-
-    # should navigate to the desired address according to the spiral pattern
-    # modify the value at that address
-  end
-=end
-
 
   private
-  def manhattan_distance_to_read_port(address)
-    
-  end
 
-  def address_to_ring_number(address)
+  def address_to_spiral(address)
     (Math.sqrt(address).ceil / 2).floor()
   end
 
   def validate(address)
-    if address > @max_address || address < 0
-      raise(NoMemoryError, "Address #{address} is beyond maximum address #{@max_address}.")
+    if address.nil?
+      raise(ArgumentError, "Address cannot be nil.")
+    elsif address > @max_address # not initialized
+      raise(ArgumentError, "Address #{address} is beyond maximum address #{@max_address}.")
+    elsif address <= 0
+      raise(ArgumentError, "Maximum address must be >= 1.")
+    else
+      nil
     end
   end
+
 end
