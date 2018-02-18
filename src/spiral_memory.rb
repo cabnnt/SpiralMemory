@@ -1,6 +1,8 @@
-class SpiralMemory
+require 'byebug'
 
+class SpiralMemory
   attr_reader :max_address
+  attr_reader :memory_grid
   attr_reader :number_of_spirals
 
   def initialize(max_address)
@@ -9,37 +11,67 @@ class SpiralMemory
 
       @number_of_spirals = address_to_spiral(max_address)
       @max_address = max_address
-      @read_port_address = 1
+      @origin = coordinate(0, 0)
+      @memory_grid = {@origin => 1}
     end
 
     validate(max_address)
   end
 
-  # Calculate the Manhattan distance (see https://en.wikipedia.org/wiki/Taxicab_geometry) from `address` to the center
-  # of memory.
-  #
-  # Specifically, calculate the distance from `address` to the nearest radial (where distance to center == `spiral`)
-  # and then sum this with that radial's distance to the center.
-  def manhattan_distance(address)
-    validate(address)
+  # Calculate the Manhattan distance (see https://en.wikipedia.org/wiki/Taxicab_geometry) from coordinate(x, y) to the
+  # center of memory -- i.e., to the origin, coordinate(0, 0).
+  def manhattan_distance_to_origin(x, y)
+    source = coordinate(Integer(x), Integer(y))
 
-    if address == 1
-      0
-    else
-      radius = address_to_spiral(address)
-      distance_between_corners = 2 * radius
-
-      inner_spiral_side_length = 2 * radius - 1
-      inner_spiral_area = (inner_spiral_side_length) ** 2
-      inner_spiral_perimeter = 4 * inner_spiral_side_length + 4   # the number of elements in a spiral
-
-      distance_from_maximum_element = address - (inner_spiral_area % inner_spiral_perimeter)
-      distance_from_last_corner = distance_from_maximum_element % distance_between_corners
-
-      distance_to_side_center = (distance_from_last_corner - radius).abs
-
-      distance_to_side_center + radius
+    if @memory_grid[source].nil?
+      raise(ArgumentError, "No such coordinate (#{x}, #{y}).")
     end
+
+    @origin
+        .each_cons(2)
+        .map{|x1, y1| (x - x1).abs + (y - y1).abs}
+        .first
+  end
+
+  def sum_all_neighbors(limit_address)
+    limit_address = Integer(limit_address)
+    validate(limit_address)
+
+    x = 1
+    y = 0
+
+    x_direction = 1
+    y_direction = 0
+
+    (1..max_address).each {
+      current_sum = 0
+
+      (-1..1).each { |x_modifier|
+        (-1..1).each { |y_modifier|
+          adjacent = @memory_grid[[x + x_modifier, y + y_modifier]]
+          current_sum += adjacent unless adjacent.nil?
+        }
+      }
+
+      @memory_grid[[x, y]] = current_sum
+
+      if @memory_grid[[x, y]] > max_address
+        # manhattan_distance_to_origin(x, y)
+      end
+
+      new_x_direction = -(y_direction)
+      new_y_direction = x_direction
+
+      if @memory_grid[[x + new_x_direction, y + new_y_direction]].nil?
+        x_direction = new_x_direction
+        y_direction = new_y_direction
+      end
+
+      x = x + x_direction
+      y = y + y_direction
+    }
+
+    # byebug
   end
 
   private
@@ -51,13 +83,17 @@ class SpiralMemory
   def validate(address)
     if address.nil?
       raise(ArgumentError, "Address cannot be nil.")
-    elsif address > @max_address # not initialized
+    elsif address > @max_address
       raise(ArgumentError, "Address #{address} is beyond maximum address #{@max_address}.")
     elsif address <= 0
       raise(ArgumentError, "Maximum address must be >= 1.")
     else
       nil
     end
+  end
+
+  def coordinate(x, y)
+    [x, y]
   end
 
 end
