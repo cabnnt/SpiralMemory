@@ -1,25 +1,22 @@
-require 'byebug'
-
 class SpiralMemory
+
   attr_reader :max_address
   attr_reader :memory_grid
-  attr_reader :number_of_spirals
 
   def initialize(max_address)
     if !max_address.nil? && max_address >= 1
       max_address = Integer(max_address)
 
-      @number_of_spirals = address_to_spiral(max_address)
       @max_address = max_address
       @origin = coordinate(0, 0)
-      @memory_grid = {@origin => 1}
+      @memory_grid = { @origin => 1 }
     end
 
     validate(max_address)
   end
 
   # Calculate the Manhattan distance (see https://en.wikipedia.org/wiki/Taxicab_geometry) from coordinate(x, y) to the
-  # center of memory -- i.e., to the origin, coordinate(0, 0).
+  # origin, coordinate(0, 0) -- i.e., to the center of memory.
   def manhattan_distance_to_origin(x, y)
     source = coordinate(Integer(x), Integer(y))
 
@@ -27,57 +24,56 @@ class SpiralMemory
       raise(ArgumentError, "No such coordinate (#{x}, #{y}).")
     end
 
-    @origin
-        .each_cons(2)
-        .map{|x1, y1| (x - x1).abs + (y - y1).abs}
-        .first
+    [source, @origin].transpose
+        .map{ |x1, x2| (x2 - x1).abs }
+        .reduce(:+)
   end
 
-  def sum_all_neighbors(limit_address)
+  # Populate the memory grid by spiraling outward from (0, 0), counter-clockwise, and summing adjacent values
+  # as they are generated. Return the Manhattan distance to the first such value that is greater than the input.
+  def sum_all_neighbors(limit_address = nil)
+    limit_address = limit_address || @max_address
+    clear_memory()  # ensures grid is empty before calculations begin
+
     limit_address = Integer(limit_address)
     validate(limit_address)
 
-    x = 1
-    y = 0
+    current = coordinate(1, 0)
+    direction = coordinate(1, 0)
 
-    x_direction = 1
-    y_direction = 0
+    translation = (-1..1).to_a
+    translation = translation.product(translation)
 
-    (1..max_address).each {
-      current_sum = 0
+    distances = []
 
-      (-1..1).each { |x_modifier|
-        (-1..1).each { |y_modifier|
-          adjacent = @memory_grid[[x + x_modifier, y + y_modifier]]
-          current_sum += adjacent unless adjacent.nil?
-        }
+    (1..@max_address).each {
+      sum = 0
+
+      translation.each { |t_x, t_y|
+        adjacent = @memory_grid[coordinate(current.first() + t_x, current.last() + t_y)]
+        sum += adjacent unless adjacent.nil?
       }
 
-      @memory_grid[[x, y]] = current_sum
+      @memory_grid[current] = sum
 
-      if @memory_grid[[x, y]] > max_address
-        # manhattan_distance_to_origin(x, y)
+      if @memory_grid[current] > limit_address
+        distances.append(manhattan_distance_to_origin(current.first(), current.last()))
       end
 
-      new_x_direction = -(y_direction)
-      new_y_direction = x_direction
+      look_direction = coordinate(-direction.last(), direction.first())  # new direction is now (-y, x)
+      look = [look_direction, current].transpose.map{ |x| x.reduce(:+) }
+      direction = look_direction if @memory_grid[look].nil?
 
-      if @memory_grid[[x + new_x_direction, y + new_y_direction]].nil?
-        x_direction = new_x_direction
-        y_direction = new_y_direction
-      end
-
-      x = x + x_direction
-      y = y + y_direction
+      current = [current, direction].transpose.map{ |new| new.reduce(:+) }
     }
 
-    # byebug
+    distances.first()
   end
 
   private
 
-  def address_to_spiral(address)
-    (Math.sqrt(address).ceil / 2).floor()
+  def clear_memory()
+    @memory_grid = {@origin => 1}
   end
 
   def validate(address)
@@ -87,8 +83,6 @@ class SpiralMemory
       raise(ArgumentError, "Address #{address} is beyond maximum address #{@max_address}.")
     elsif address <= 0
       raise(ArgumentError, "Maximum address must be >= 1.")
-    else
-      nil
     end
   end
 
