@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="652b5a80-58af-4111-b0d5-b48b46146e5e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main.rb" />
-      <change beforePath="$PROJECT_DIR$/.idea/spiral_memory.iml" afterPath="$PROJECT_DIR$/.idea/spiral_memory.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/spiral_memory.rb" afterPath="$PROJECT_DIR$/src/spiral_memory.rb" />
-      <change beforePath="$PROJECT_DIR$/tests/test_spiral_memory.rb" afterPath="$PROJECT_DIR$/tests/test_spiral_memory.rb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,12 +17,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="test_spiral_memory.rb" pinned="true" current-in-tab="true">
+      <file leaf-file-name="test_spiral_memory.rb" pinned="true" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/test_spiral_memory.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1245">
               <caret line="83" column="52" lean-forward="true" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="105">
+                <caret line="7" column="50" lean-forward="true" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -78,6 +87,7 @@
         <option value="$PROJECT_DIR$/tests/test_spiral_memory.rb" />
         <option value="$PROJECT_DIR$/src/spiral_memory.rb" />
         <option value="$PROJECT_DIR$/src/main.rb" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -225,7 +235,7 @@
       <updated>1518798804256</updated>
       <workItem from="1518798808295" duration="9000" />
       <workItem from="1518798820239" duration="1000" />
-      <workItem from="1518901321562" duration="41732000" />
+      <workItem from="1518901321562" duration="42280000" />
     </task>
     <servers />
   </component>
@@ -262,7 +272,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41742000" />
+    <option name="totallyTimeSpent" value="42290000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -348,6 +358,17 @@
         <state relative-caret-position="1245">
           <caret line="83" column="52" lean-forward="true" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="105">
+            <caret line="7" column="50" lean-forward="true" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
