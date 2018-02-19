@@ -1,4 +1,4 @@
-#Calculating Manhattan Distances in Spiral Memory
+# Calculating Manhattan Distances in Spiral Memory
 
 Written in `Ruby 2.5.0`. 
 
